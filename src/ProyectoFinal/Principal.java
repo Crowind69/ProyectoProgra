@@ -21,6 +21,7 @@ public class Principal {
         System.out.println(" ***************************************** ");
         System.out.println("1. Realizar reservación; ");
         System.out.println("2. Mostrar reservas por ubicación: ");
+        System.out.println();
         System.out.println("3. Mostrar colas de espera por ubicación: ");
         System.out.println("4. Mostrar ganancias totales ");
         System.out.println("5. Mostrar ganancias por ubicaciones ");
