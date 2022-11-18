@@ -21,7 +21,6 @@ public class Principal {
         System.out.println(" ***************************************** ");
         System.out.println("1. Realizar reservación; ");
         System.out.println("2. Mostrar reservas por ubicación: ");
-        System.out.println();
         System.out.println("3. Mostrar colas de espera por ubicación: ");
         System.out.println("4. Mostrar ganancias totales ");
         System.out.println("5. Mostrar ganancias por ubicaciones ");
@@ -45,26 +44,36 @@ public class Principal {
         switch (opcion) {
             case 1:
                 //realizando reservacion
+                //reservar preferencial
+                //reservar graderia
+                //reservar general
                 break;
 
             case 2:
                 //mostrando reservas por ubicacion
+                //submenu que mostrara las siguientes reservas:
+                //preferencial - graderia - general
                 break;
 
             case 3:
                 //mostrando colas de espera
+                //submenu que mostrara las colas:
+                //preferencial - graderia - general
                 break;
 
             case 4:
                 //mostrando ganancias totales
+                //lamar los get de cada clase, mostrando la lista total y finalmente mostrar el resultado final $_$
                 break;
 
             case 5:
                 //mostrando ganancias por ubicaciones
+                //llamamos el get con el arraylist de cada clase
                 break;
 
             case 6:
                 //mostrando el teatro
+                //llamamos los vectores y los imprimimos
                 break;
 
             case 7:

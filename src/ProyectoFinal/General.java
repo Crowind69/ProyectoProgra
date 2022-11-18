@@ -1,5 +1,4 @@
 package ProyectoFinal;
 
-
-public class Reserva {
+public class General {
 }
