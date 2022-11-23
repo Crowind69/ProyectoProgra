@@ -10,6 +10,10 @@ public class Preferencial {
 
     public Preferencial() {
 
+        System.out.println(" ***************************************** ");
+        System.out.println("    DENTRO DE LA CLASE DE PREFERENCIAL      ");
+        System.out.println(" ***************************************** ");
+
     }
 
     public Preferencial(int[] campos) {

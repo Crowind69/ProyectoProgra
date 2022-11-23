@@ -1,5 +1,7 @@
 package ProyectoFinal.ui;
 
+import ProyectoFinal.cl.General;
+import ProyectoFinal.cl.Graderia;
 import ProyectoFinal.cl.Preferencial;
 
 import java.util.Scanner;
@@ -28,7 +30,7 @@ public class menus {
         return opcion;
     }
 
-    public static void tipoReserva() {
+    public static void ubicacionReserva() {
 
         System.out.println(" ***************************************** ");
         System.out.println("1. Preferencial");
@@ -39,12 +41,12 @@ public class menus {
 
     }
 
-
     public static void reservarPreferencial() {
         System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
         System.out.println("Devolver al menu");
 
     }
+
     public static void reservarGraderia() {
         System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
         System.out.println("Devolver al menu");
@@ -63,22 +65,32 @@ public class menus {
 
             case 1:
                 //Reservamos Preferencial
-                Preferencial.setCampos()
-                // mostrar cual fue el campo que se le asigno o que compro
+                System.out.println(" ***************************************** ");
+                System.out.println("    Reservando en preferencial      ");
+                System.out.println(" ***************************************** ");
+                // empezar a ejectuar el codigo en la CL
 
-                Preferencial.devolverCampo();
+                Preferencial();
+               // reservarPreferencial();
 
                 break;
 
             case 2:
-                //Reservar Graderia
-                reservarGraderia();
+                //Reservar en graderia
+                System.out.println(" ***************************************** ");
+                System.out.println("    Reservando en graderia preferencial      ");
+                System.out.println(" ***************************************** ");
+                // empezar a ejectuar el codigo en la CL
+                Graderia();
                 break;
 
             case 3:
                 //Reservar general
-                reservarGeneral();
-
+                System.out.println(" ***************************************** ");
+                System.out.println("    Reservando en general      ");
+                System.out.println(" ***************************************** ");
+                // empezar a ejectuar el codigo en la CL
+                General();
             default:
                 System.out.println("Opcion invalida");
 
@@ -147,9 +159,9 @@ public class menus {
         boolean salir = false;
         switch (opcion) {
             case 1:
-                //Escoger tipo de reserva
+                //Escoger la ubicacion en donde queremos reservar
                 do {
-                    tipoReserva();
+                    ubicacionReserva();
                     opcion = seleccionarOpcion();
                     salir = reservar(opcion);
                 } while (!salir);
@@ -160,7 +172,7 @@ public class menus {
             case 2:
                 //mostrando reservas por ubicacion
                 do {
-                    tipoReserva();
+                    ubicacionReserva();
                     opcion = seleccionarOpcion();
                     salir = moostrarReservas(opcion);
                 } while (!salir);
@@ -169,7 +181,7 @@ public class menus {
             case 3:
                 //Mostrar cola de reservas
                 do {
-                    tipoReserva();
+                    ubicacionReserva();
                     opcion = seleccionarOpcion();
                     salir = moostrarColaDeReservas(opcion);
                 } while (!salir);
