@@ -61,6 +61,7 @@ public class menus {
 
     public static boolean reservar(int opcion) {
 
+        boolean salir = false;
         switch (opcion){
 
             case 1:
@@ -70,7 +71,7 @@ public class menus {
                 System.out.println(" ***************************************** ");
                 // empezar a ejectuar el codigo en la CL
 
-                Preferencial();
+                new Preferencial();
                // reservarPreferencial();
 
                 break;
@@ -81,7 +82,7 @@ public class menus {
                 System.out.println("    Reservando en graderia preferencial      ");
                 System.out.println(" ***************************************** ");
                 // empezar a ejectuar el codigo en la CL
-                Graderia();
+                new Graderia();
                 break;
 
             case 3:
@@ -90,7 +91,7 @@ public class menus {
                 System.out.println("    Reservando en general      ");
                 System.out.println(" ***************************************** ");
                 // empezar a ejectuar el codigo en la CL
-                General();
+                new General();
             default:
                 System.out.println("Opcion invalida");
 
@@ -102,6 +103,7 @@ public class menus {
 
     public static boolean moostrarReservas(int opcion) {
 
+        boolean salir = false;
         switch (opcion){
 
             case 1:
@@ -129,6 +131,7 @@ public class menus {
 
     public static boolean moostrarColaDeReservas(int opcion) {
 
+        boolean salir = false;
         switch (opcion){
 
             case 1:
@@ -165,7 +168,6 @@ public class menus {
                     opcion = seleccionarOpcion();
                     salir = reservar(opcion);
                 } while (!salir);
-        }
 
                 break;
 
