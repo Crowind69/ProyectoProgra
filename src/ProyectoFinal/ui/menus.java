@@ -1,22 +1,10 @@
-package ProyectoFinal;
+package ProyectoFinal.ui;
 
 import java.util.Scanner;
 
-public class Principal {
+public class menus {
 
     static Scanner entrada = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        int opcion;
-        boolean salir = false;
-
-        do {
-            presentarMenu();
-            opcion = seleccionarOpcion();
-            salir = ejecutarOpcion(opcion);
-        } while (!salir);
-    }
-
     public static void presentarMenu() {
         System.out.println(" ***************************************** ");
         System.out.println("1. Realizar reservación; ");
@@ -38,15 +26,34 @@ public class Principal {
 
     }
 
+    public static void tipoReserva() {
+        System.out.println(" ***************************************** ");
+        System.out.println("1. Preferencial");
+        System.out.println("2. Gradería Preferencial");
+        System.out.println("3. Gradería General");
+        System.out.println("4. Salir");
+        System.out.println(" ***************************************** ");
+
+    }
+
+
     public static boolean ejecutarOpcion(int opcion) {
 
         boolean salir = false;
         switch (opcion) {
             case 1:
-                //realizando reservacion
-                //reservar preferencial
-                //reservar graderia
-                //reservar general
+                tipoReserva();
+                int opcion;
+                boolean salir = false;
+
+                do {
+                    presentarMenu();
+                    opcion = seleccionarOpcion();
+                    salir = ejecutarOpcion(opcion);
+                } while (!salir);
+
+                //escoger tipo reservacion
+                //reservar asiento
                 break;
 
             case 2:
@@ -85,5 +92,4 @@ public class Principal {
         }
         return salir;
     }
-
 }
