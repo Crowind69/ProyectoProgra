@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Preferencial {
     static ArrayList<Preferencial> listaEspera = new ArrayList<Preferencial>();
-    int[] campos = new int[10];
+    static int[] campos = new int[10];
 
     public Preferencial() {
 
@@ -30,6 +30,13 @@ public class Preferencial {
 
     public void setCampos(int[] campos) {
         this.campos = campos;
+    }
+
+
+    public static void devolverCampo() {
+
+        // vamos a crear una funcion que devuelve el campo que se acaba de comprar
+
     }
 
     @Override

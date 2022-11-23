@@ -1,10 +1,14 @@
 package ProyectoFinal.ui;
 
+import ProyectoFinal.cl.Preferencial;
+
 import java.util.Scanner;
 
 public class menus {
 
     static Scanner entrada = new Scanner(System.in);
+
+
     public static void presentarMenu() {
         System.out.println(" ***************************************** ");
         System.out.println("1. Realizar reservación; ");
@@ -15,7 +19,6 @@ public class menus {
         System.out.println("6. Mostrar el teatro");
         System.out.println("7. Salir");
         System.out.println(" ***************************************** ");
-
     }
 
     public static int seleccionarOpcion() {
@@ -23,10 +26,10 @@ public class menus {
         System.out.print("Ingrese su opcion: ");
         opcion = entrada.nextInt();
         return opcion;
-
     }
 
     public static void tipoReserva() {
+
         System.out.println(" ***************************************** ");
         System.out.println("1. Preferencial");
         System.out.println("2. Gradería Preferencial");
@@ -37,40 +40,148 @@ public class menus {
     }
 
 
+    public static void reservarPreferencial() {
+        System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
+        System.out.println("Devolver al menu");
+
+    }
+    public static void reservarGraderia() {
+        System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
+        System.out.println("Devolver al menu");
+
+    }
+
+    public static void reservarGeneral() {
+        System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
+        System.out.println("Devolver al menu");
+
+    }
+
+    public static boolean reservar(int opcion) {
+
+        switch (opcion){
+
+            case 1:
+                //Reservamos Preferencial
+                Preferencial.setCampos()
+                // mostrar cual fue el campo que se le asigno o que compro
+
+                Preferencial.devolverCampo();
+
+                break;
+
+            case 2:
+                //Reservar Graderia
+                reservarGraderia();
+                break;
+
+            case 3:
+                //Reservar general
+                reservarGeneral();
+
+            default:
+                System.out.println("Opcion invalida");
+
+        }
+
+        return salir;
+
+    }
+
+    public static boolean moostrarReservas(int opcion) {
+
+        switch (opcion){
+
+            case 1:
+                //Mostrar Reserva Preferencial
+
+                break;
+
+            case 2:
+                //Mostrar Reserva Graderia
+           ;
+                break;
+
+            case 3:
+                //Mostrar Reserva general
+                break;
+
+            default:
+                System.out.println("Opcion invalida");
+
+        }
+
+        return salir;
+
+    }
+
+    public static boolean moostrarColaDeReservas(int opcion) {
+
+        switch (opcion){
+
+            case 1:
+                //Mostrar Reserva Preferencial
+
+                break;
+
+            case 2:
+                //Mostrar Reserva Graderia
+                ;
+                break;
+
+            case 3:
+                //Mostrar Reserva general
+                break;
+
+            default:
+                System.out.println("Opcion invalida");
+
+        }
+
+        return salir;
+
+    }
+
     public static boolean ejecutarOpcion(int opcion) {
 
         boolean salir = false;
         switch (opcion) {
             case 1:
-                tipoReserva();
-                int opcion;
-                boolean salir = false;
-
+                //Escoger tipo de reserva
                 do {
-                    presentarMenu();
+                    tipoReserva();
                     opcion = seleccionarOpcion();
-                    salir = ejecutarOpcion(opcion);
+                    salir = reservar(opcion);
                 } while (!salir);
+        }
 
-                //escoger tipo reservacion
-                //reservar asiento
                 break;
 
             case 2:
                 //mostrando reservas por ubicacion
-                //submenu que mostrara las siguientes reservas:
-                //preferencial - graderia - general
+                do {
+                    tipoReserva();
+                    opcion = seleccionarOpcion();
+                    salir = moostrarReservas(opcion);
+                } while (!salir);
                 break;
 
             case 3:
-                //mostrando colas de espera
-                //submenu que mostrara las colas:
-                //preferencial - graderia - general
+                //Mostrar cola de reservas
+                do {
+                    tipoReserva();
+                    opcion = seleccionarOpcion();
+                    salir = moostrarColaDeReservas(opcion);
+                } while (!salir);
                 break;
 
             case 4:
-                //mostrando ganancias totales
-                //lamar los get de cada clase, mostrando la lista total y finalmente mostrar el resultado final $_$
+                //vamos a traer total de reservas de preferencial
+                //vamos a traer el total de reservas de gerencia
+                //vamos a traer el total de reservas de general
+
+                // vamos a multiplicar cada valor por lo que vale su tiquete
+                // mostrarmos el output
                 break;
 
             case 5:
