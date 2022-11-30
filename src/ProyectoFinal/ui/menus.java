@@ -10,12 +10,14 @@ public class menus {
 
     static Scanner entrada = new Scanner(System.in);
 
-
+    /* *****************************************
+           INICIO DE OPCIONES PARA MENUS
+       **************************************** */
     public static void presentarMenu() {
         System.out.println(" ***************************************** ");
-        System.out.println("1. Realizar reservación; ");
-        System.out.println("2. Mostrar reservas por ubicación: ");
-        System.out.println("3. Mostrar colas de espera por ubicación: ");
+        System.out.println("1. Realizar reservacion; ");
+        System.out.println("2. Mostrar reservas por ubicacion: ");
+        System.out.println("3. Mostrar colas de espera por ubicacion: ");
         System.out.println("4. Mostrar ganancias totales ");
         System.out.println("5. Mostrar ganancias por ubicaciones ");
         System.out.println("6. Mostrar el teatro");
@@ -34,28 +36,46 @@ public class menus {
 
         System.out.println(" ***************************************** ");
         System.out.println("1. Preferencial");
-        System.out.println("2. Gradería Preferencial");
-        System.out.println("3. Gradería General");
+        System.out.println("2. Graderia Preferencial");
+        System.out.println("3. Graderia General");
         System.out.println("4. Salir");
         System.out.println(" ***************************************** ");
 
     }
 
-    public static void reservarPreferencial() {
-        System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
-        System.out.println("Devolver al menu");
+    /* *****************************************
+          FIN DE OPCIONES PARA MENUS
+      **************************************** */
+
+
+    /* *****************************************
+        INICIO DE RESERVAS POR UBICACION
+    **************************************** */
+    public static boolean reservarPreferencial() {
+       //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
+
+        Preferencial Reserva = new Preferencial();
+        Reserva.reservar();
+        System.out.println("Su reserva a sido creada con exito");
+        return true;
 
     }
 
-    public static void reservarGraderia() {
-        System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
-        System.out.println("Devolver al menu");
+    public static boolean reservarGraderia() {
+        //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
+
+        Graderia reserva = new Graderia();
+        System.out.println("Su reserva a sido creada con exito");
+        return true;
 
     }
 
-    public static void reservarGeneral() {
-        System.out.println("vamos a llamar al set de preferencial para asigarle el espacio");
-        System.out.println("Devolver al menu");
+    public static boolean reservarGeneral() {
+        //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
+
+        General reserva = new General();
+        System.out.println("Su reserva a sido creada con exito");
+        return true;
 
     }
 
@@ -66,41 +86,33 @@ public class menus {
 
             case 1:
                 //Reservamos Preferencial
-                System.out.println(" ***************************************** ");
-                System.out.println("    Reservando en preferencial      ");
-                System.out.println(" ***************************************** ");
-                // empezar a ejectuar el codigo en la CL
-
-                new Preferencial();
-               // reservarPreferencial();
-
+                 salir = reservarPreferencial();
                 break;
 
             case 2:
                 //Reservar en graderia
-                System.out.println(" ***************************************** ");
-                System.out.println("    Reservando en graderia preferencial      ");
-                System.out.println(" ***************************************** ");
-                // empezar a ejectuar el codigo en la CL
-                new Graderia();
+                salir = reservarGraderia();
                 break;
 
             case 3:
                 //Reservar general
-                System.out.println(" ***************************************** ");
-                System.out.println("    Reservando en general      ");
-                System.out.println(" ***************************************** ");
-                // empezar a ejectuar el codigo en la CL
-                new General();
+                salir = reservarGeneral();
+                break;
+
             default:
                 System.out.println("Opcion invalida");
-
         }
-
         return salir;
-
     }
 
+    /* *****************************************
+        FIN DE RESERVAS POR UBICACION
+    **************************************** */
+
+
+    /* *****************************************
+       INICIO DE METODOS PARA MOSTRAR RESULTADOS
+   **************************************** */
     public static boolean moostrarReservas(int opcion) {
 
         boolean salir = false;
@@ -108,16 +120,23 @@ public class menus {
 
             case 1:
                 //Mostrar Reserva Preferencial
-
+                Preferencial reservasDePreferencial = new Preferencial();
+                reservasDePreferencial.mostrarReservas();
+                salir = true;
                 break;
 
             case 2:
                 //Mostrar Reserva Graderia
-           ;
+                Graderia reservasDeGraderial = new Graderia();
+                reservasDeGraderial.mostrarReservas();
+                salir = true;
                 break;
 
             case 3:
                 //Mostrar Reserva general
+                General reservasDeGenerall = new General();
+                reservasDeGenerall.mostrarReservas();
+                salir = true;
                 break;
 
             default:
@@ -157,6 +176,15 @@ public class menus {
 
     }
 
+      /* *****************************************
+       FIN DE METODOS PARA MOSTRAR RESULTADOS
+   **************************************** */
+
+
+        /* *****************************************
+       MENU PRINCIPAL QUE INICIA TODAS LAS OPCIONES
+    **************************************** */
+
     public static boolean ejecutarOpcion(int opcion) {
 
         boolean salir = false;
@@ -166,9 +194,14 @@ public class menus {
                 do {
                     ubicacionReserva();
                     opcion = seleccionarOpcion();
+                    // realizamos la reservacion donde se escogio
                     salir = reservar(opcion);
-                } while (!salir);
 
+                    if (opcion == 4){
+                        salir = true;
+                    }
+                } while (!salir);
+                salir = false;
                 break;
 
             case 2:
@@ -176,18 +209,42 @@ public class menus {
                 do {
                     ubicacionReserva();
                     opcion = seleccionarOpcion();
+                    // mostramos la reserva de la ubicacion seleccionada
                     salir = moostrarReservas(opcion);
                 } while (!salir);
+
+
+                // volvemos al menu
+                if (opcion == 4){
+                    salir = true;
+                }
+                salir = false;
                 break;
 
+                // mostramos las reservas de esta ubicacion junto con la disponibilidad
+
             case 3:
-                //Mostrar cola de reservas
+                //Mostrar cola de reservas por ubicacion
                 do {
                     ubicacionReserva();
                     opcion = seleccionarOpcion();
+
+                    // mostramos la cola de reservas de la ubicacion seleccionada
+
+
+                    //salimos
                     salir = moostrarColaDeReservas(opcion);
+
+                    // volvemos al menu
+                    if (opcion == 4){
+                        salir = true;
+                    }
+
                 } while (!salir);
+                salir = false;
                 break;
+
+                // mostrar la cola de la ubicacion seleccion
 
             case 4:
                 //vamos a traer total de reservas de preferencial

@@ -3,50 +3,41 @@ package ProyectoFinal.cl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Preferencial {
-    static ArrayList<Preferencial> listaEspera = new ArrayList<Preferencial>();
-    static int[] campos = new int[10];
+
+    Queue<Integer> reservas = new LinkedList<>();
+    Queue<Integer> colaReservas = new LinkedList<>();
 
     public Preferencial() {
 
-        System.out.println(" ***************************************** ");
-        System.out.println("    DENTRO DE LA CLASE DE PREFERENCIAL      ");
-        System.out.println(" ***************************************** ");
+    }
+
+    public void reservar () {
+
+        if (reservas.size() > 10){
+            colaReservas.add(1 + reservas.size());
+        } else {
+            reservas.add(1 + reservas.size());
+        }
 
     }
 
-    public Preferencial(int[] campos) {
-        this.campos = campos;
+    public void mostrarReservas() {
+         System.out.println("Actualemte se encuentran reservados: " + reservas.size() + " espacios");
     }
 
-    public static ArrayList<Preferencial> getListaEspera() {
-        return listaEspera;
+    public void mostrarColaDeReservas() {
+        System.out.println("Actualemte se encuentrar reservados: " + colaReservas.size() + " espacios");
     }
 
-    public static void setListaEspera(ArrayList<Preferencial> listaEspera) {
-        Preferencial.listaEspera = listaEspera;
-    }
+    /*
 
-    public int[] getCampos() {
-        return campos;
-    }
-
-    public void setCampos(int[] campos) {
-        this.campos = campos;
-    }
+        System.out.println("Primer elemento: " + reservas.peek());
+*/
 
 
-    public static void devolverCampo() {
-
-        // vamos a crear una funcion que devuelve el campo que se acaba de comprar
-
-    }
-
-    @Override
-    public String toString() {
-        return "Preferencial{" +
-                "campos=" + Arrays.toString(campos) +
-                '}';
-    }
 }
