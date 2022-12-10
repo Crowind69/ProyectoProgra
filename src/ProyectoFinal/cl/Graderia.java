@@ -7,25 +7,29 @@ import java.util.LinkedList;
 import java.util.Queue;
 public class Graderia {
 
-    Queue<Integer> reservas = new LinkedList<>();
-    Queue<Integer> colaReservas = new LinkedList<>();
+    static Queue<Integer> reservas = new LinkedList<>();
+    static Queue<Integer> colaReservas = new LinkedList<>();
 
     public Graderia() {
 
+    }
+
+    public void reservarGraderia () {
+
         if (reservas.size() > 10){
-            colaReservas.add(colaReservas.size()+1);
+            colaReservas.add(1 + colaReservas.size());
         } else {
-            reservas.add(reservas.size()+1);
+            reservas.add(1 + reservas.size());
         }
 
     }
 
-    public void mostrarReservas() {
-        System.out.println("Actualemte se encuentran reservados: " + reservas.size() + " espacios");
+    public static void mostrarReservas() {
+        System.out.println("Actualmente se encuentran reservados: " + reservas.size() + " espacios");
     }
 
-    public void mostrarColaDeReservas() {
-        System.out.println("Actualemte se encuentrar reservados: " + colaReservas.size() + " espacios");
+    public static void mostrarColaDeReservas() {
+        System.out.println("Actualmente se encuentrar reservados: " + colaReservas.size() + " espacios");
     }
 
     /*

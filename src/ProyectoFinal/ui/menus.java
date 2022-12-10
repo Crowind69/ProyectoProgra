@@ -64,7 +64,8 @@ public class menus {
     public static boolean reservarGraderia() {
         //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
-        Graderia reserva = new Graderia();
+        Graderia Reserva = new Graderia();
+        Reserva.reservarGraderia();
         System.out.println("Su reserva a sido creada con exito");
         return true;
 
@@ -73,7 +74,8 @@ public class menus {
     public static boolean reservarGeneral() {
         //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
-        General reserva = new General();
+        General Reserva = new General();
+        Reserva.reservarGeneral();
         System.out.println("Su reserva a sido creada con exito");
         return true;
 
@@ -134,8 +136,8 @@ public class menus {
 
             case 3:
                 //Mostrar Reserva general
-                General reservasDeGenerall = new General();
-                reservasDeGenerall.mostrarReservas();
+                General reservasDeGeneral = new General();
+                reservasDeGeneral.mostrarReservas();
                 salir = true;
                 break;
 

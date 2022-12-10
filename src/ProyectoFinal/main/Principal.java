@@ -1,5 +1,7 @@
 package ProyectoFinal.main;
 
+import ProyectoFinal.ui.menus;
+
 import java.util.Scanner;
 
 import static ProyectoFinal.ui.menus.*;
@@ -11,9 +13,9 @@ public class Principal {
         boolean salir = false;
 
         do {
-            presentarMenu();
-            opcion = seleccionarOpcion();
-            salir = ejecutarOpcion(opcion);
+            menus.presentarMenu();
+            opcion = menus.seleccionarOpcion();
+            salir = menus.ejecutarOpcion(opcion);
         } while (!salir);
     }
 }
