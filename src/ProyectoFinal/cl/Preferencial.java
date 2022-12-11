@@ -1,9 +1,6 @@
 package ProyectoFinal.cl;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -16,7 +13,7 @@ public class Preferencial {
 
     }
 
-    public void reservar () {
+    public void reservarPreferencial () {
 
         if (reservas.size() > 10){
             colaReservas.add(1 + colaReservas.size());
@@ -26,12 +23,17 @@ public class Preferencial {
 
     }
 
-    public static void mostrarReservas() {
-         System.out.println("Actualmente se encuentran reservados: " + reservas.size() + " espacios");
+    public static int mostrarReservas() {
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentran reservados: " + reservas.size() + " espacios en Preferencial");
+        System.out.println("************************************");
+         return reservas.size();
     }
 
     public static void mostrarColaDeReservas() {
-        System.out.println("Actualmente se encuentrar reservados: " + colaReservas.size() + " espacios");
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentrar reservados: " + colaReservas.size() + " espacios en la cola de reserva de Preferencial");
+        System.out.println("************************************");
     }
 
     /*

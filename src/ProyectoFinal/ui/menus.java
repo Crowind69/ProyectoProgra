@@ -10,6 +10,12 @@ public class menus {
 
     static Scanner entrada = new Scanner(System.in);
 
+    static Preferencial Preferencial = new Preferencial();
+    static Graderia Graderia = new Graderia();
+    static General General = new General();
+
+    static String scenario[][] = new String[3][3];
+
     /* *****************************************
            INICIO DE OPCIONES PARA MENUS
        **************************************** */
@@ -54,9 +60,10 @@ public class menus {
     public static boolean reservarPreferencial() {
        //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
-        Preferencial Reserva = new Preferencial();
-        Reserva.reservar();
+        Preferencial.reservarPreferencial();
+        System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
+        System.out.println("************************************");
         return true;
 
     }
@@ -66,7 +73,9 @@ public class menus {
 
         Graderia Reserva = new Graderia();
         Reserva.reservarGraderia();
+        System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
+        System.out.println("************************************");
         return true;
 
     }
@@ -76,7 +85,9 @@ public class menus {
 
         General Reserva = new General();
         Reserva.reservarGeneral();
+        System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
+        System.out.println("************************************");
         return true;
 
     }
@@ -111,7 +122,6 @@ public class menus {
         FIN DE RESERVAS POR UBICACION
     **************************************** */
 
-
     /* *****************************************
        INICIO DE METODOS PARA MOSTRAR RESULTADOS
    **************************************** */
@@ -122,22 +132,22 @@ public class menus {
 
             case 1:
                 //Mostrar Reserva Preferencial
-                Preferencial reservasDePreferencial = new Preferencial();
-                reservasDePreferencial.mostrarReservas();
+               // Preferencial reservasDePreferencial = new Preferencial();
+                Preferencial.mostrarReservas();
                 salir = true;
                 break;
 
             case 2:
                 //Mostrar Reserva Graderia
-                Graderia reservasDeGraderial = new Graderia();
-                reservasDeGraderial.mostrarReservas();
+
+                Graderia.mostrarReservas();
                 salir = true;
                 break;
 
             case 3:
                 //Mostrar Reserva general
-                General reservasDeGeneral = new General();
-                reservasDeGeneral.mostrarReservas();
+
+                General.mostrarReservas();
                 salir = true;
                 break;
 
@@ -157,16 +167,24 @@ public class menus {
 
             case 1:
                 //Mostrar Reserva Preferencial
-
+                // Preferencial reservasDePreferencial = new Preferencial();
+                Preferencial.mostrarColaDeReservas();
+                salir = true;
                 break;
+
 
             case 2:
                 //Mostrar Reserva Graderia
-                ;
+
+                Graderia.mostrarColaDeReservas();
+                salir = true;
                 break;
 
             case 3:
                 //Mostrar Reserva general
+
+                General.mostrarColaDeReservas();
+                salir = true;
                 break;
 
             default:
@@ -182,6 +200,60 @@ public class menus {
        FIN DE METODOS PARA MOSTRAR RESULTADOS
    **************************************** */
 
+        /* *****************************************
+       INICIO DE METODOS PARA MOSTRAR GANANCIAS
+   **************************************** */
+
+    public static boolean moostrarGanacias(int opcion) {
+
+        boolean salir = false;
+        switch (opcion){
+
+            case 1:
+                //Mostrar Reserva Preferencial
+                // Preferencial reservasDePreferencial = new Preferencial();
+                int totalPreferencial = Preferencial.mostrarReservas();
+                totalPreferencial = 7000 * totalPreferencial;
+                System.out.println("************************************");
+                System.out.println("La cantidad de Ganacias generadas por Preferencial es de: "+totalPreferencial+" colones");
+                System.out.println("************************************");
+                salir = true;
+                break;
+
+            case 2:
+                //Mostrar Reserva Graderia
+
+                int totalGraderia = Graderia.mostrarReservas();
+                totalGraderia = 5500 * totalGraderia;
+                System.out.println("************************************");
+                System.out.println("La cantidad de Ganacias generadas por Graderia es de: "+totalGraderia+" colones");
+                System.out.println("************************************");
+                salir = true;
+                break;
+
+            case 3:
+                //Mostrar Reserva General
+
+                int totalGeneral = General.mostrarReservas();
+                totalGeneral = 4000 * totalGeneral;
+                System.out.println("************************************");
+                System.out.println("La cantidad de Ganacias generadas por General es de: "+totalGeneral+" colones");
+                System.out.println("************************************");
+                salir = true;
+                break;
+
+            default:
+                System.out.println("Opcion invalida");
+
+        }
+
+        return salir;
+
+    }
+
+        /* *****************************************
+       FIN DE METODOS PARA MOSTRAR GANANCIAS
+   **************************************** */
 
         /* *****************************************
        MENU PRINCIPAL QUE INICIA TODAS LAS OPCIONES
@@ -226,45 +298,82 @@ public class menus {
                 // mostramos las reservas de esta ubicacion junto con la disponibilidad
 
             case 3:
-                //Mostrar cola de reservas por ubicacion
+
+                //mostrando cola reservas por ubicacion
                 do {
                     ubicacionReserva();
                     opcion = seleccionarOpcion();
-
-                    // mostramos la cola de reservas de la ubicacion seleccionada
-
-
-                    //salimos
+                    // mostramos la cola de reserva de la ubicacion seleccionada
                     salir = moostrarColaDeReservas(opcion);
-
-                    // volvemos al menu
-                    if (opcion == 4){
-                        salir = true;
-                    }
-
                 } while (!salir);
+
+
+                // volvemos al menu
+                if (opcion == 4){
+                    salir = true;
+                }
                 salir = false;
                 break;
 
-                // mostrar la cola de la ubicacion seleccion
+            // mostramos las colas de reservas de esta ubicacion junto con la disponibilidad
 
-            case 4:
-                //vamos a traer total de reservas de preferencial
-                //vamos a traer el total de reservas de gerencia
-                //vamos a traer el total de reservas de general
+
+            case 4: //Mostrar ganancias totales
+
+                //vamos a traer total de reservas de los campos
+                int totalPreferencial = Preferencial.mostrarReservas();
+                int totalGraderia = Graderia.mostrarReservas();
+                int totalGeneral = General.mostrarReservas();
 
                 // vamos a multiplicar cada valor por lo que vale su tiquete
+                totalPreferencial = 7000 * totalPreferencial;
+                totalGraderia = 5500 * totalGraderia;
+                totalGeneral = 4000 * totalGeneral;
+
+                // sumamos todos los valores
+                int totalGanacias = totalPreferencial + totalGraderia + totalGeneral;
+
                 // mostrarmos el output
+                System.out.println("************************************");
+                System.out.println("Hay un total de: "+totalGanacias+ " de ganancias generadas");
+                System.out.println("************************************");
                 break;
 
-            case 5:
-                //mostrando ganancias por ubicaciones
-                //llamamos el get con el arraylist de cada clase
+            case 5: // Mostrar ganancias por ubicaciones
+                //mostrando cola reservas por ubicacion
+                do {
+                    ubicacionReserva();
+                    opcion = seleccionarOpcion();
+                    // mostramos la cola de reserva de la ubicacion seleccionada
+                    salir = moostrarGanacias(opcion);
+                } while (!salir);
+
+
+                // volvemos al menu
+                if (opcion == 4){
+                    salir = true;
+                }
+                salir = false;
                 break;
 
-            case 6:
-                //mostrando el teatro
-                //llamamos los vectores y los imprimimos
+            case 6: // Mostrar el teatro
+                System.out.println("************************************");
+
+
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+
+                        scenario[i][j] = "X6";
+                        System.out.print(scenario[i][j]);
+
+                    }
+                    System.out.println();
+                }
+
+                System.out.println("************************************");
+
+
+
                 break;
 
             case 7:

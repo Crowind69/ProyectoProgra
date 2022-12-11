@@ -1,8 +1,5 @@
 package ProyectoFinal.cl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 public class Graderia {
@@ -24,12 +21,18 @@ public class Graderia {
 
     }
 
-    public static void mostrarReservas() {
-        System.out.println("Actualmente se encuentran reservados: " + reservas.size() + " espacios");
+    public static int mostrarReservas() {
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentran reservados: " + reservas.size() + " espacios en Graderia");
+        System.out.println("************************************");
+        return reservas.size();
     }
 
     public static void mostrarColaDeReservas() {
-        System.out.println("Actualmente se encuentrar reservados: " + colaReservas.size() + " espacios");
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentrar reservados: " + colaReservas.size() + " espacios reservados en la cola de Graderia");
+        System.out.println("************************************");
+
     }
 
     /*
