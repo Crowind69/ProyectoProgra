@@ -4,6 +4,8 @@ package ProyectoFinal.cl;
 import ProyectoFinal.Contenedoras.CArrayList;
 import ProyectoFinal.Contenedoras.CQueue;
 
+
+
 public class Preferencial {
 
     protected String nombre;

@@ -3,6 +3,7 @@ package ProyectoFinal.ui;
 import ProyectoFinal.Contenedoras.CArrayList;
 import ProyectoFinal.cl.General;
 import ProyectoFinal.cl.Graderia;
+import ProyectoFinal.cl.PersonasReservas;
 import ProyectoFinal.cl.Preferencial;
 
 import java.util.Scanner;
