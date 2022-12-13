@@ -3,9 +3,6 @@ package ProyectoFinal.cl;
 import ProyectoFinal.Contenedoras.CLinkedList;
 import ProyectoFinal.Contenedoras.CQueue;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class General {
 
     static CLinkedList reservas = new CLinkedList();

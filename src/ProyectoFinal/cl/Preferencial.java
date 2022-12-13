@@ -4,9 +4,6 @@ package ProyectoFinal.cl;
 import ProyectoFinal.Contenedoras.CArrayList;
 import ProyectoFinal.Contenedoras.CQueue;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Preferencial {
 
     protected String nombre;
