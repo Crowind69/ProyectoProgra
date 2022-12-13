@@ -1,5 +1,6 @@
 package ProyectoFinal.cl;
 
+import ProyectoFinal.Contenedoras.CLinkedList;
 import ProyectoFinal.Contenedoras.CQueue;
 
 import java.util.LinkedList;
@@ -7,7 +8,7 @@ import java.util.Queue;
 
 public class General {
 
-    static LinkedList<Integer> reservas = new LinkedList<>();
+    static CLinkedList reservas = new CLinkedList();
     static CQueue colaReservas = new CQueue();
 
     public General() {
@@ -16,19 +17,19 @@ public class General {
 
     public void reservarGeneral () {
         General general = new General();
-        if (reservas.size() >= 20){
+        if (reservas.getGeneralLinkedList().size() >= 20){
             colaReservas.getGeneralQueue().add(general);
         } else {
-            reservas.add(1 + reservas.size());
+            reservas.getGeneralLinkedList().add(general);
         }
 
     }
 
     public static int mostrarReservas() {
         System.out.println("************************************");
-        System.out.println("Actualmente se encuentran reservados: " + reservas.size() + " espacios en General");
+        System.out.println("Actualmente se encuentran reservados: " + reservas.getGeneralLinkedList().size() + " espacios en General");
         System.out.println("************************************");
-        return reservas.size();
+        return reservas.getGeneralLinkedList().size();
     }
 
     public static void mostrarColaDeReservas() {
