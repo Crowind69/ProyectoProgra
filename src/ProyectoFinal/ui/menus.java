@@ -1,5 +1,6 @@
 package ProyectoFinal.ui;
 
+import ProyectoFinal.Contenedoras.CArrayList;
 import ProyectoFinal.cl.General;
 import ProyectoFinal.cl.Graderia;
 import ProyectoFinal.cl.Preferencial;
@@ -7,6 +8,8 @@ import ProyectoFinal.cl.Preferencial;
 import java.util.Scanner;
 
 public class menus {
+
+    static CArrayList listaUsuarios = new CArrayList();
 
     static Scanner entrada = new Scanner(System.in);
 
@@ -60,7 +63,21 @@ public class menus {
     public static boolean reservarPreferencial() {
        //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
+        Preferencial preferencial;
+        String nombre;
         Preferencial.reservarPreferencial();
+        if (listaUsuarios.getMyList().size() >= 10){
+            System.out.println("Bienvenido. \n Lo sentimos, actualmente se han reservado todos los asientos, su" +
+                    "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
+                    "para agregarlo a la cola: ");
+        } else {
+            System.out.println("Bienvenido. \nIngrese su nombre completo: ");
+        }
+        nombre = entrada.next();
+        preferencial = new Preferencial(nombre);
+
+        listaUsuarios.getMyLista().add(preferencial);
+
         System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
         System.out.println("************************************");

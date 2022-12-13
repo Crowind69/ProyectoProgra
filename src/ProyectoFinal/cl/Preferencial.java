@@ -5,10 +5,8 @@ import ProyectoFinal.Contenedoras.CArrayList;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class Preferencial {
-    static Scanner entrada = new Scanner(System.in);
 
     protected String nombre;
 
@@ -21,6 +19,10 @@ public class Preferencial {
 
     }
 
+    public Preferencial(String nombre) {
+
+        this.nombre = nombre;
+    }
 
     public void reservarPreferencial () {
         Preferencial p = new Preferencial();
@@ -30,7 +32,6 @@ public class Preferencial {
         } else {
             reservas.getMyList().add(p);
         }
-
     }
 
     public static int mostrarReservas() {
@@ -44,6 +45,20 @@ public class Preferencial {
         System.out.println("************************************");
         System.out.println("Actualmente se encuentrar reservados: " + colaReservas.size() + " espacios en la cola de reserva de Preferencial");
         System.out.println("************************************");
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String toString() {
+
+        return "Bienvenido al teatro Los Patitos" +
+                "\nSe muestra una lista de las personas que han reservado un cupo en la zona Preferencia: " + getNombre();
     }
 
     /*
