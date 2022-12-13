@@ -1,5 +1,6 @@
 package ProyectoFinal.cl;
 
+import ProyectoFinal.Contenedoras.CQueue;
 import ProyectoFinal.Contenedoras.CStack;
 
 import java.util.LinkedList;
@@ -8,8 +9,8 @@ import java.util.Queue;
 public class Graderia {
 
     static CStack reservas = new CStack();
-    static Queue<Integer> colaReservas = new LinkedList<>();
 
+    static CQueue colaReservas = new CQueue();
     public Graderia() {
 
     }
@@ -17,7 +18,7 @@ public class Graderia {
     public void reservarGraderia () {
         Graderia graderia = new Graderia();
         if (reservas.getStack().size() >= 25){
-            colaReservas.add(1 + colaReservas.size());
+            colaReservas.getGraderiaQueue().add(graderia);
         } else {
             reservas.getStack().push(graderia);
         }
@@ -33,7 +34,7 @@ public class Graderia {
 
     public static void mostrarColaDeReservas() {
         System.out.println("************************************");
-        System.out.println("Actualmente se encuentran reservados: " + colaReservas.size() + " espacios reservados en la cola de Graderia");
+        System.out.println("Actualmente se encuentran reservados: " + colaReservas.getGraderiaQueue().size() + " espacios reservados en la cola de Graderia");
         System.out.println("************************************");
 
     }
