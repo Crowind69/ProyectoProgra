@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class General {
 
-    static Queue<Integer> reservas = new LinkedList<>();
+    static LinkedList<Integer> reservas = new LinkedList<>();
     static Queue<Integer> colaReservas = new LinkedList<>();
 
     public General() {
@@ -13,7 +13,7 @@ public class General {
     }
 
     public void reservarGeneral () {
-        if (reservas.size() > 10){
+        if (reservas.size() >= 20){
             colaReservas.add(1 + colaReservas.size());
         } else {
             reservas.add(1 + reservas.size());

@@ -1,33 +1,43 @@
 package ProyectoFinal.cl;
 
 
+import ProyectoFinal.Contenedoras.CArrayList;
+
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class Preferencial {
+    static Scanner entrada = new Scanner(System.in);
 
-    static Queue<Integer> reservas = new LinkedList<>();
+    protected String nombre;
+
+    static CArrayList reservas = new CArrayList();
+
     static Queue<Integer> colaReservas = new LinkedList<>();
 
     public Preferencial() {
 
+
     }
 
-    public void reservarPreferencial () {
 
-        if (reservas.size() > 10){
+    public void reservarPreferencial () {
+        Preferencial p = new Preferencial();
+
+        if (reservas.getMyList().size() >= 10){
             colaReservas.add(1 + colaReservas.size());
         } else {
-            reservas.add(1 + reservas.size());
+            reservas.getMyList().add(p);
         }
 
     }
 
     public static int mostrarReservas() {
         System.out.println("************************************");
-        System.out.println("Actualmente se encuentran reservados: " + reservas.size() + " espacios en Preferencial");
+        System.out.println("Actualmente se encuentran reservados: " + reservas.getMyList().size() + " espacios en Preferencial");
         System.out.println("************************************");
-         return reservas.size();
+        return reservas.getMyList().size();
     }
 
     public static void mostrarColaDeReservas() {
