@@ -4,4 +4,5 @@ import javax.swing.*;
 
 public class Teatro {
     private JPanel TeatroMain;
+    private JButton salirButton;
 }
