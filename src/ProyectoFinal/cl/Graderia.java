@@ -6,11 +6,17 @@ import ProyectoFinal.Contenedoras.CStack;
 
 public class Graderia {
 
+    protected String nombre;
+
     static CStack reservas = new CStack();
 
     static CQueue colaReservas = new CQueue();
     public Graderia() {
 
+    }
+
+    public Graderia(String nombre) {
+        this.nombre = nombre;
     }
 
     public void reservarGraderia () {
@@ -35,6 +41,20 @@ public class Graderia {
         System.out.println("Actualmente se encuentran reservados: " + colaReservas.getGraderiaQueue().size() + " espacios reservados en la cola de Graderia");
         System.out.println("************************************");
 
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String toString() {
+
+        return "Bienvenido al teatro Los Patitos" +
+                "\nSe muestra una lista de las personas que han reservado un cupo en la zona Preferencia: " + getNombre();
     }
 
     /*

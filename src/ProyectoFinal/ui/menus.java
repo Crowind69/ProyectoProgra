@@ -1,6 +1,8 @@
 package ProyectoFinal.ui;
 
 import ProyectoFinal.Contenedoras.CArrayList;
+import ProyectoFinal.Contenedoras.CLinkedList;
+import ProyectoFinal.Contenedoras.CStack;
 import ProyectoFinal.cl.General;
 import ProyectoFinal.cl.Graderia;
 import ProyectoFinal.cl.PersonasReservas;
@@ -11,6 +13,8 @@ import java.util.Scanner;
 public class menus {
 
     static CArrayList listaUsuarios = new CArrayList();
+    static CLinkedList listaGeneral = new CLinkedList();
+    static CStack listaGraderia = new CStack();
 
     static Scanner entrada = new Scanner(System.in);
 
@@ -89,8 +93,20 @@ public class menus {
     public static boolean reservarGraderia() {
         //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
-        Graderia Reserva = new Graderia();
-        Reserva.reservarGraderia();
+        Graderia graderia;
+        String nombre;
+        Graderia.reservarGraderia();
+        if (listaGraderia.getStack().size() >= 10) {
+            System.out.println("Bienvenido. \n Lo sentimos, actualmente se han reservado todos los asientos, su" +
+                    "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
+                    "para agregarlo a la cola: ");
+        } else {
+            System.out.println("Bienvenido. \nIngrese su nombre completo: ");
+        }
+        nombre = entrada.next();
+        graderia = new Graderia(nombre);
+        listaGraderia.getGraderiaReservas().push(graderia);
+
         System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
         System.out.println("************************************");
@@ -101,8 +117,21 @@ public class menus {
     public static boolean reservarGeneral() {
         //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
-        General Reserva = new General();
-        Reserva.reservarGeneral();
+        General general;
+        String nombre;
+        General.reservarGeneral();
+
+        if (listaGeneral.getGeneralLinkedList().size() >= 10) {
+            System.out.println("Bienvenido. \n Lo sentimos, actualmente se han reservado todos los asientos, su" +
+                    "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
+                    "para agregarlo a la cola: ");
+        } else {
+            System.out.println("Bienvenido. \nIngrese su nombre completo: ");
+        }
+        nombre = entrada.next();
+        general = new General(nombre);
+        listaGeneral.getGeneralReservas().add(general);
+
         System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
         System.out.println("************************************");
