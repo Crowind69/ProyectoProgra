@@ -11,19 +11,17 @@ public class CQueue {
     private static Queue<Preferencial> myQueue; //Clase Preferencial
     private static Queue<Graderia> graderiaQueue;
     private static Queue<General> generalQueue;
-    private static Queue<Preferencial> preferencialCola; //Clase menú para guardar nombres
+
     public CQueue(){
         myQueue = new LinkedList<Preferencial>();
         graderiaQueue = new LinkedList<Graderia>();
         generalQueue = new LinkedList<General>();
-        preferencialCola = new LinkedList<Preferencial>();
 
     }
     public CQueue(Queue<Preferencial> myQueue, Queue<Graderia> graderiaQueue, Queue<General> generalQueue, Queue<Preferencial> preferencialCola){
         this.myQueue = myQueue;
         this.graderiaQueue = graderiaQueue;
         this.generalQueue = generalQueue;
-        this.preferencialCola = preferencialCola;
     }
     public void setMyQueue(Queue<Preferencial> myQueue) {
         this.myQueue = myQueue;
@@ -37,9 +35,6 @@ public class CQueue {
         this.generalQueue = generalQueue;
     }
 
-    public void setPreferencialCola(Queue<Preferencial> preferencialCola) {
-        this.preferencialCola = preferencialCola;
-    }
 
     public static Queue<Preferencial> getQueue() {
         return myQueue;
@@ -53,7 +48,4 @@ public class CQueue {
         return generalQueue;
     }
 
-    public static Queue<Preferencial> getPreferencialCola() {
-        return preferencialCola;
-    }
 }

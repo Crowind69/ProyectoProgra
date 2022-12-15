@@ -4,22 +4,18 @@ import ProyectoFinal.Contenedoras.CQueue;
 import ProyectoFinal.Contenedoras.CStack;
 
 
-public class Graderia {
+public class Graderia extends PersonasReservas {
 
-    protected String nombre;
 
     static CStack reservas = new CStack();
-
     static CQueue colaReservas = new CQueue();
-    public Graderia() {
+    
+    public Graderia(String nombreCliente) {
+    	super(nombreCliente);
 
     }
 
-    public Graderia(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void reservarGraderia () {
+    /*public void reservarGraderia () {
         Graderia graderia = new Graderia();
         if (reservas.getStack().size() >= 50){
             colaReservas.getGraderiaQueue().add(graderia);
@@ -27,7 +23,7 @@ public class Graderia {
             reservas.getStack().push(graderia);
         }
 
-    }
+    }*/
 
     public static int mostrarReservas() {
         System.out.println("************************************");
@@ -43,18 +39,10 @@ public class Graderia {
 
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String toString() {
 
         return "Bienvenido al teatro Los Patitos" +
-                "\nSe muestra una lista de las personas que han reservado un cupo en la zona Preferencia: " + getNombre();
+                "\nSe muestra una lista de las personas que han reservado un cupo en la zona Preferencia: " + getNombreCliente();
     }
 
     /*

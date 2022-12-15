@@ -6,32 +6,23 @@ import java.util.Stack;
 
 public class CStack {
 
-    private Stack<Graderia> myStack;
-    private Stack<Graderia> graderiaReservas;
+    private static Stack<Graderia> myStack;
+    
     public CStack(){
 
         myStack = new Stack<Graderia>();
-        graderiaReservas = new Stack<Graderia>();
     }
-    CStack(Stack<Graderia> myStack, Stack<Graderia> graderiaReservas){
+    
+    CStack(Stack<Graderia> myStack){
 
-    }
-
-    public void setMyStack(Stack<Graderia> myStack) {
-
-        this.myStack = myStack;
     }
 
-    public void setGraderiaReservas(Stack<Graderia> graderiaReservas) {
-        this.graderiaReservas = graderiaReservas;
-    }
+	public void setMyStack(Stack<Graderia> myStack) {
+		this.myStack = myStack;
+	}
+	
+	public Stack<Graderia> getStack() {
+		return myStack;
+	}
 
-    public Stack<Graderia> getStack() {
-
-        return myStack;
-    }
-
-    public Stack<Graderia> getGraderiaReservas() {
-        return graderiaReservas;
-    }
 }

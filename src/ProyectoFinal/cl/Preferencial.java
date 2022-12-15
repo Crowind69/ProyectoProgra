@@ -6,33 +6,16 @@ import ProyectoFinal.Contenedoras.CQueue;
 
 
 
-public class Preferencial {
-
-    protected String nombre;
-
-    static CArrayList reservas = new CArrayList();
+public class Preferencial extends PersonasReservas{
+	
+	static CArrayList reservas = new CArrayList();
     static CQueue colaReservas = new CQueue();
 
-
-    public Preferencial() {
-
+    public Preferencial(String nombreCliente) {
+    	super(nombreCliente);
 
     }
 
-    public Preferencial(String nombre) {
-
-        this.nombre = nombre;
-    }
-
-    /*public void reservarPreferencial () {
-        Preferencial p = new Preferencial();
-
-        if (reservas.getMyList().size() >= 3){
-            colaReservas.getQueue().add(p);
-        } else {
-            reservas.getMyList().add(p);
-        }
-    }*/
 
     public static int mostrarReservas() {
         System.out.println("************************************");
@@ -47,24 +30,10 @@ public class Preferencial {
         System.out.println("************************************");
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public String toString() {
 
         return "Bienvenido al teatro Los Patitos" +
-                "\nSe muestra una lista de las personas que han reservado un cupo en la zona Preferencia: " + getNombre();
+                "\nSe muestra una lista de las personas que han reservado un cupo en la zona Preferencia: " + getNombreCliente();
     }
-
-    /*
-
-        System.out.println("Primer elemento: " + reservas.peek());
-*/
-
-
 }
