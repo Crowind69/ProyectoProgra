@@ -3,6 +3,7 @@ package ProyectoFinal.ui;
 import ProyectoFinal.Contenedoras.CArrayList;
 import ProyectoFinal.Contenedoras.CLinkedList;
 import ProyectoFinal.Contenedoras.CStack;
+import ProyectoFinal.Teatro.Teatro2;
 import ProyectoFinal.cl.General;
 import ProyectoFinal.cl.Graderia;
 import ProyectoFinal.cl.PersonasReservas;
@@ -180,6 +181,13 @@ public class menus {
             case 1:
                 //Mostrar Reserva Preferencial
                // Preferencial reservasDePreferencial = new Preferencial();
+            	if (listaUsuarios.getMyLista().size() == 0) {
+            		System.out.println("No hay reservas");
+            	} else {
+            		for (int i = 0; i < listaUsuarios.getMyLista().size(); i++) {
+            			System.out.println(listaUsuarios.getMyLista().get(i).toString());
+            		}
+            	}
                 Preferencial.mostrarReservas();
                 salir = true;
                 break;
@@ -407,7 +415,7 @@ public class menus {
                 System.out.println("************************************");
 
 
-                for (int i = 0; i < 3; i++) {
+               /* for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 3; j++) {
 
                         scenario[i][j] = "X6";
@@ -415,7 +423,9 @@ public class menus {
 
                     }
                     System.out.println();
-                }
+                }*/
+                Teatro2 teatro = new Teatro2();
+                teatro.setVisible(true);
 
                 System.out.println("************************************");
 
