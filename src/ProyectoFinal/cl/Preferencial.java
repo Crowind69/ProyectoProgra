@@ -24,7 +24,7 @@ public class Preferencial {
         this.nombre = nombre;
     }
 
-    public void reservarPreferencial () {
+    /*public void reservarPreferencial () {
         Preferencial p = new Preferencial();
 
         if (reservas.getMyList().size() >= 3){
@@ -32,7 +32,7 @@ public class Preferencial {
         } else {
             reservas.getMyList().add(p);
         }
-    }
+    }*/
 
     public static int mostrarReservas() {
         System.out.println("************************************");

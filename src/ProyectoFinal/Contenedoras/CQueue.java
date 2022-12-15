@@ -8,10 +8,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class CQueue {
-    private Queue<Preferencial> myQueue; //Clase Preferencial
-    private Queue<Graderia> graderiaQueue;
-    private Queue<General> generalQueue;
-    private Queue<Preferencial> preferencialCola; //Clase menú para guardar nombres
+    private static Queue<Preferencial> myQueue; //Clase Preferencial
+    private static Queue<Graderia> graderiaQueue;
+    private static Queue<General> generalQueue;
+    private static Queue<Preferencial> preferencialCola; //Clase menú para guardar nombres
     public CQueue(){
         myQueue = new LinkedList<Preferencial>();
         graderiaQueue = new LinkedList<Graderia>();
@@ -41,19 +41,19 @@ public class CQueue {
         this.preferencialCola = preferencialCola;
     }
 
-    public Queue<Preferencial> getQueue() {
+    public static Queue<Preferencial> getQueue() {
         return myQueue;
     }
 
-    public Queue<Graderia> getGraderiaQueue() {
+    public static Queue<Graderia> getGraderiaQueue() {
         return graderiaQueue;
     }
 
-    public Queue<General> getGeneralQueue() {
+    public static Queue<General> getGeneralQueue() {
         return generalQueue;
     }
 
-    public Queue<Preferencial> getPreferencialCola() {
+    public static Queue<Preferencial> getPreferencialCola() {
         return preferencialCola;
     }
 }
