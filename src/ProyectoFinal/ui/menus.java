@@ -189,7 +189,7 @@ public class menus {
             	if (listaUsuariosPreferencial.getMyList().size() == 0) {
             		System.out.println("No hay reservas");
             	} else if (listaUsuariosPreferencial.getMyList().size() == 4) {
-                   // moostrarColaDeReservas(opcion);
+                   moostrarColaDeReservas(opcion);
                 } else {
                     for (int i = 0; i < listaUsuariosPreferencial.getMyList().size(); i++) {
                         System.out.println(listaUsuariosPreferencial.getMyList().get(i).toString());
@@ -233,8 +233,6 @@ public class menus {
                 // Preferencial reservasDePreferencial = new Preferencial();
                 if (colaPreferencial.getQueue().size() == 0) {
                     System.out.println("No hay cola de reservas");
-                } else if (colaPreferencial.getQueue().size() == 4) {
-
                 } else {
                     for (int i = 0; i < colaPreferencial.getQueue().size(); i++) {
                         System.out.println(colaPreferencial.getQueue().toString());
