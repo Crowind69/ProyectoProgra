@@ -2,6 +2,7 @@ package ProyectoFinal.ui;
 
 import ProyectoFinal.Contenedoras.CArrayList;
 import ProyectoFinal.Contenedoras.CLinkedList;
+import ProyectoFinal.Contenedoras.CQueue;
 import ProyectoFinal.Contenedoras.CStack;
 import ProyectoFinal.Teatro.Teatro2;
 import ProyectoFinal.cl.General;
@@ -16,6 +17,7 @@ public class menus {
     static CArrayList listaUsuarios = new CArrayList();
     static CLinkedList listaGeneral = new CLinkedList();
     static CStack listaGraderia = new CStack();
+    static CQueue colaPreferencial = new CQueue();
 
     static Scanner entrada = new Scanner(System.in);
 
@@ -72,17 +74,20 @@ public class menus {
         Preferencial preferencial;
         String nombre;
         Preferencial.reservarPreferencial();
-        if (listaUsuarios.getMyList().size() >= 10){
-            System.out.println("Bienvenido. \n Lo sentimos, actualmente se han reservado todos los asientos, su" +
+        if (listaUsuarios.getMyList().size() >= 3){
+            System.out.println("Bienvenido.\n Lo sentimos, actualmente se han reservado todos los asientos, su" +
                     "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
                     "para agregarlo a la cola: ");
+            nombre = entrada.next();
+            preferencial = new Preferencial(nombre);
+            colaPreferencial.getPreferencialCola().add(preferencial);
+            System.out.println(colaPreferencial.getPreferencialCola());
         } else {
             System.out.println("Bienvenido. \nIngrese su nombre completo: ");
+            nombre = entrada.next();
+            preferencial = new Preferencial(nombre);
+            listaUsuarios.getMyLista().add(preferencial);
         }
-        nombre = entrada.next();
-        preferencial = new Preferencial(nombre);
-
-        listaUsuarios.getMyLista().add(preferencial);
 
         System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
@@ -183,11 +188,14 @@ public class menus {
                // Preferencial reservasDePreferencial = new Preferencial();
             	if (listaUsuarios.getMyLista().size() == 0) {
             		System.out.println("No hay reservas");
-            	} else {
-            		for (int i = 0; i < listaUsuarios.getMyLista().size(); i++) {
-            			System.out.println(listaUsuarios.getMyLista().get(i).toString());
-            		}
-            	}
+            	} else if (listaUsuarios.getMyLista().size() == 3) {
+                   // moostrarColaDeReservas(opcion);
+                } else {
+                    for (int i = 0; i < listaUsuarios.getMyLista().size(); i++) {
+                        System.out.println(listaUsuarios.getMyLista().get(i).toString());
+                    }
+                }
+
                 Preferencial.mostrarReservas();
                 salir = true;
                 break;
@@ -223,6 +231,15 @@ public class menus {
             case 1:
                 //Mostrar Reserva Preferencial
                 // Preferencial reservasDePreferencial = new Preferencial();
+                if (colaPreferencial.getPreferencialCola().size() == 0) {
+                    System.out.println("No hay reservas");
+                } else if (colaPreferencial.getPreferencialCola().size() == 3) {
+
+                } else {
+                    for (int i = 0; i < colaPreferencial.getPreferencialCola().size(); i++) {
+                        System.out.println(colaPreferencial.getPreferencialCola().toString());
+                    }
+                }
                 Preferencial.mostrarColaDeReservas();
                 salir = true;
                 break;

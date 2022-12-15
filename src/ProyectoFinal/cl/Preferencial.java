@@ -27,7 +27,7 @@ public class Preferencial {
     public void reservarPreferencial () {
         Preferencial p = new Preferencial();
 
-        if (reservas.getMyList().size() >= 10){
+        if (reservas.getMyList().size() >= 3){
             colaReservas.getQueue().add(p);
         } else {
             reservas.getMyList().add(p);
