@@ -160,7 +160,7 @@ public class menus {
 
     }
 
-    public static boolean listarReservas(Preferencial pre) throws IOException {
+    public static void listarReservas(Preferencial pre) throws IOException {
 
         if (listaUsuariosPreferencial.getMyList().size() == 0) {
             System.out.println("No hay reservas");
@@ -169,10 +169,9 @@ public class menus {
                 System.out.println(listaUsuariosPreferencial.getMyList().get(i).toString());
             }
         }
-        return true;
     }
 
-    public static boolean listarReservas(Graderia gra) throws IOException {
+    public static void listarReservas(Graderia gra) throws IOException {
 
         if (listaGraderia.getStack().size() == 0) {
             System.out.println("No hay reservas");
@@ -181,10 +180,9 @@ public class menus {
                 System.out.println(listaGraderia.getStack().get(i).toString());
             }
         }
-        return true;
     }
 
-    public static boolean listarReservas(General gen) throws IOException {
+    public static void listarReservas(General gen) throws IOException {
 
         if (listaGeneral.getGeneralLinkedList().size() == 0) {
             System.out.println("No hay reservas");
@@ -193,13 +191,22 @@ public class menus {
                 System.out.println(listaGeneral.getGeneralLinkedList().get(i).toString());
             }
         }
-        return true;
     }
 
-    public static boolean listarColasReservas(Preferencial prefe) throws IOException {
+    public static void listarColasReservas(Preferencial prefe) throws IOException {
+
+        if (colaPreferencial.getQueue().size() == 0) {
+            System.out.println("No hay cola de reservas");
+        } else {
+            for (int i = 0; i < colaPreferencial.getQueue().size(); i++) {
+                System.out.println(colaPreferencial.getQueue());
+            }
+        }
+    }
+
+    public static void listarColasReservas(Graderia grade) {
 
 
-        return true;
     }
 
     public static boolean reservar(int opcion) throws IOException{
@@ -273,7 +280,7 @@ public class menus {
 
     }
 
-    public static boolean moostrarColaDeReservas(int opcion) {
+    public static boolean moostrarColaDeReservas(int opcion) throws IOException{
 
         boolean salir = false;
         switch (opcion){
@@ -281,14 +288,9 @@ public class menus {
             case 1:
                 //Mostrar Reserva Preferencial
                 // Preferencial reservasDePreferencial = new Preferencial();
-                if (colaPreferencial.getQueue().size() == 0) {
-                    System.out.println("No hay cola de reservas");
-                } else {
-                    for (int i = 0; i < colaPreferencial.getQueue().size(); i++) {
-                        System.out.println(colaPreferencial.getQueue().toString());
-                    }
-                }
-               Preferencial.mostrarColaDeReservas();
+
+                listarColasReservas(Preferencial);
+                Preferencial.mostrarColaDeReservas();
                 salir = true;
                 break;
 
