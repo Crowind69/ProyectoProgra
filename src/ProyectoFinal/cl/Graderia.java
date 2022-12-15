@@ -21,7 +21,7 @@ public class Graderia {
 
     public void reservarGraderia () {
         Graderia graderia = new Graderia();
-        if (reservas.getStack().size() >= 25){
+        if (reservas.getStack().size() >= 50){
             colaReservas.getGraderiaQueue().add(graderia);
         } else {
             reservas.getStack().push(graderia);
