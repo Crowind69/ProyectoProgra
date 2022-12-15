@@ -1,6 +1,6 @@
 package ProyectoFinal.Contenedoras;
 
-import ProyectoFinal.cl.General;
+import ProyectoFinal.Modelo.General;
 
 import java.util.LinkedList;
 

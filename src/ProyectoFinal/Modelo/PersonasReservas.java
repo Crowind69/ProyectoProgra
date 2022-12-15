@@ -1,4 +1,4 @@
-package ProyectoFinal.cl;
+package ProyectoFinal.Modelo;
 
 public class PersonasReservas {
     protected String nombreCliente;

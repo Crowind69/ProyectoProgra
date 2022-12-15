@@ -1,4 +1,4 @@
-package ProyectoFinal.cl;
+package ProyectoFinal.Modelo;
 
 import ProyectoFinal.Contenedoras.CLinkedList;
 import ProyectoFinal.Contenedoras.CQueue;

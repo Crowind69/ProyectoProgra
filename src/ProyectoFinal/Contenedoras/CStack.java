@@ -1,6 +1,6 @@
 package ProyectoFinal.Contenedoras;
 
-import ProyectoFinal.cl.Graderia;
+import ProyectoFinal.Modelo.Graderia;
 
 import java.util.Stack;
 

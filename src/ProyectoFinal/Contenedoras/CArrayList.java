@@ -1,6 +1,6 @@
 package ProyectoFinal.Contenedoras;
 
-import ProyectoFinal.cl.Preferencial;
+import ProyectoFinal.Modelo.Preferencial;
 
 import java.util.ArrayList;
 

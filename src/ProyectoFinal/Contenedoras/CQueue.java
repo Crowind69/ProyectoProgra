@@ -1,8 +1,8 @@
 package ProyectoFinal.Contenedoras;
 
-import ProyectoFinal.cl.General;
-import ProyectoFinal.cl.Graderia;
-import ProyectoFinal.cl.Preferencial;
+import ProyectoFinal.Modelo.General;
+import ProyectoFinal.Modelo.Graderia;
+import ProyectoFinal.Modelo.Preferencial;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -18,7 +18,7 @@ public class CQueue {
         generalQueue = new LinkedList<General>();
 
     }
-    public CQueue(Queue<Preferencial> myQueue, Queue<Graderia> graderiaQueue, Queue<General> generalQueue, Queue<Preferencial> preferencialCola){
+    public CQueue(Queue<Preferencial> myQueue, Queue<Graderia> graderiaQueue, Queue<General> generalQueue){
         this.myQueue = myQueue;
         this.graderiaQueue = graderiaQueue;
         this.generalQueue = generalQueue;
