@@ -45,9 +45,14 @@ public class Interfaz {
     }
 
     public static int seleccionarOpcion() throws IOException {
-        int opcion;
-        System.out.print("Ingrese su opcion: ");
-        opcion = Integer.parseInt(in.readLine());
+        int opcion = 0;
+
+        try {
+            System.out.print("Ingrese su opcion: ");
+            opcion = Integer.parseInt(in.readLine());
+        } catch (NumberFormatException ex) {
+            System.out.println("Error, ingrese solo los números que se indican según cada menú");
+        }
         return opcion;
     }
 
@@ -74,18 +79,23 @@ public class Interfaz {
        //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
         String nombre;
-        if (listaUsuariosPreferencial.getMyList().size() >= 3){
-            System.out.println("Bienvenido.\nLo sentimos, actualmente se han reservado todos los asientos, su" +
-                    "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
-                    "para agregarlo a la cola: ");
-            nombre = in.readLine();
-            preferencial = new Preferencial(nombre);
-            colaPreferencial.getQueue().add(preferencial);
-        } else {
-            System.out.println("Bienvenido. \nIngrese su nombre completo: ");
-            nombre = in.readLine();
-            preferencial = new Preferencial(nombre);
-            listaUsuariosPreferencial.getMyList().add(preferencial);
+
+        try {
+            if (listaUsuariosPreferencial.getMyList().size() >= 3){
+                System.out.println("Bienvenido.\nLo sentimos, actualmente se han reservado todos los asientos, su" +
+                        "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
+                        "para agregarlo a la cola: ");
+                nombre = in.readLine();
+                preferencial = new Preferencial(nombre);
+                colaPreferencial.getQueue().add(preferencial);
+            } else {
+                System.out.println("Bienvenido. \nIngrese su nombre completo: ");
+                nombre = in.readLine();
+                preferencial = new Preferencial(nombre);
+                listaUsuariosPreferencial.getMyList().add(preferencial);
+            }
+        } catch (Exception  ex) {
+            System.out.println("Lo sentimos, ha ocurrido un error, vuelva a intentarlo");
         }
 
         System.out.println("************************************");
@@ -98,20 +108,25 @@ public class Interfaz {
         //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
         String nombre;
-        if (listaGraderia.getStack().size() >= 3) {
-        	System.out.println("Bienvenido.\nLo sentimos, actualmente se han reservado todos los asientos, su" +
-                    "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
-                    "para agregarlo a la cola: ");
-            nombre = in.readLine();
-            graderia = new Graderia(nombre);
-            colaGraderia.getGraderiaQueue().add(graderia);
-		} else {
-            System.out.println("Bienvenido. \nIngrese su nombre completo: ");
-            nombre = in.readLine();
-            graderia = new Graderia(nombre);
-            listaGraderia.getStack().push(graderia);
-		}
-        
+        try {
+            if (listaGraderia.getStack().size() >= 3) {
+                System.out.println("Bienvenido.\nLo sentimos, actualmente se han reservado todos los asientos, su" +
+                        "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
+                        "para agregarlo a la cola: ");
+                nombre = in.readLine();
+                graderia = new Graderia(nombre);
+                colaGraderia.getGraderiaQueue().add(graderia);
+            } else {
+                System.out.println("Bienvenido. \nIngrese su nombre completo: ");
+                nombre = in.readLine();
+                graderia = new Graderia(nombre);
+                listaGraderia.getStack().push(graderia);
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Lo sentimos, ha ocurrido un error, vuelva a intentarlo");
+        }
+
         System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
         System.out.println("************************************");
@@ -122,95 +137,28 @@ public class Interfaz {
         //Ejecutamos el constructor de preferencial que automaticamente incrementa en 1 la reserva, y si ya hay 10, incrementa la cola
 
         String nombre;
-
-        if (listaGeneral.getGeneralLinkedList().size() >= 3) {
-            System.out.println("Bienvenido. \n Lo sentimos, actualmente se han reservado todos los asientos, su" +
-                    "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
-                    "para agregarlo a la cola: ");
-            nombre = in.readLine();
-            general = new General(nombre);
-            colaGeneral.getGeneralQueue().add(general);
-        } else {
-            System.out.println("Bienvenido. \nIngrese su nombre completo: ");
-            nombre = in.readLine();
-            general = new General(nombre);
-            listaGeneral.getGeneralLinkedList().add(general);
+        try {
+            if (listaGeneral.getGeneralLinkedList().size() >= 3) {
+                System.out.println("Bienvenido. \n Lo sentimos, actualmente se han reservado todos los asientos, su" +
+                        "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
+                        "para agregarlo a la cola: ");
+                nombre = in.readLine();
+                general = new General(nombre);
+                colaGeneral.getGeneralQueue().add(general);
+            } else {
+                System.out.println("Bienvenido. \nIngrese su nombre completo: ");
+                nombre = in.readLine();
+                general = new General(nombre);
+                listaGeneral.getGeneralLinkedList().add(general);
+            }
+        } catch (Exception ex) {
+            System.out.println("Lo sentimos, ha ocurrido un error, vuelva a intentarlo");
         }
 
         System.out.println("************************************");
         System.out.println("Su reserva a sido creada con exito");
         System.out.println("************************************");
         return true;
-    }
-
-     /* *****************************************
-        INICIO DE RECORRIDO PARA LISTAR LOS
-        NOMBRES QUE HICIERON LAS RESERVAS
-    **************************************** */
-
-    public static void listarReservas(Preferencial pre) throws IOException {
-
-        if (listaUsuariosPreferencial.getMyList().size() == 0) {
-            System.out.println("No hay reservas");
-        } else {
-            for (int i = 0; i < listaUsuariosPreferencial.getMyList().size(); i++) {
-                System.out.println(listaUsuariosPreferencial.getMyList().get(i).toString());
-            }
-        }
-    }
-
-    public static void listarReservas(Graderia gra) throws IOException {
-
-        if (listaGraderia.getStack().size() == 0) {
-            System.out.println("No hay reservas");
-        } else {
-            for (int i = 0; i < listaGraderia.getStack().size(); i++) {
-                System.out.println(listaGraderia.getStack().get(i).toString());
-            }
-        }
-    }
-
-    public static void listarReservas(General gen) throws IOException {
-
-        if (listaGeneral.getGeneralLinkedList().size() == 0) {
-            System.out.println("No hay reservas");
-        } else {
-            for (int i = 0; i < listaGeneral.getGeneralLinkedList().size(); i++) {
-                System.out.println(listaGeneral.getGeneralLinkedList().get(i).toString());
-            }
-        }
-    }
-
-    public static void listarColasReservas(Preferencial prefe) throws IOException {
-
-        if (colaPreferencial.getQueue().size() == 0) {
-            System.out.println("No hay cola de reservas");
-        } else {
-            for (int i = 0; i < colaPreferencial.getQueue().size(); i++) {
-                System.out.println(colaPreferencial.getQueue());
-            }
-        }
-    }
-
-    public static void listarColasReservas(Graderia grade) throws IOException {
-        if (colaGraderia.getGraderiaQueue().size() == 0) {
-            System.out.println("No hay cola de reservas");
-        } else {
-            for (int i = 0; i < colaGraderia.getGraderiaQueue().size(); i++) {
-                System.out.println(colaGraderia.getGraderiaQueue());
-            }
-        }
-    }
-
-    public static void listarColasReservas(General gener) throws IOException {
-
-        if (colaGeneral.getGeneralQueue().size() == 0) {
-            System.out.println("No hay cola de reservas");
-        } else {
-            for (int i = 0; i < colaGeneral.getGeneralQueue().size(); i++) {
-                System.out.println(colaGeneral.getGeneralQueue().toString());
-            }
-        }
     }
 
     public static boolean reservar(int opcion) throws IOException{
@@ -243,9 +191,100 @@ public class Interfaz {
         FIN DE RESERVAS POR UBICACION
     **************************************** */
 
+
     /* *****************************************
        INICIO DE METODOS PARA MOSTRAR RESULTADOS
    **************************************** */
+
+    public static void listarReservas(Preferencial pre) throws IOException {
+
+        if (listaUsuariosPreferencial.getMyList().size() == 0) {
+            System.out.println("No hay reservas");
+        } else {
+            for (int i = 0; i < listaUsuariosPreferencial.getMyList().size(); i++) {
+                System.out.println(listaUsuariosPreferencial.getMyList().get(i).toString());
+            }
+        }
+
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentran reservados: " + listaUsuariosPreferencial.getMyList().size() + " espacios en Preferencial");
+        System.out.println("************************************");
+    }
+
+    public static void listarReservas(Graderia gra) throws IOException {
+
+        if (listaGraderia.getStack().size() == 0) {
+            System.out.println("No hay reservas");
+        } else {
+            for (int i = 0; i < listaGraderia.getStack().size(); i++) {
+                System.out.println(listaGraderia.getStack().get(i).toString());
+            }
+        }
+
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentran reservados: " + listaGraderia.getStack().size() + " espacios en Graderia");
+        System.out.println("************************************");
+    }
+
+    public static void listarReservas(General gen) throws IOException {
+
+        if (listaGeneral.getGeneralLinkedList().size() == 0) {
+            System.out.println("No hay reservas");
+        } else {
+            for (int i = 0; i < listaGeneral.getGeneralLinkedList().size(); i++) {
+                System.out.println(listaGeneral.getGeneralLinkedList().get(i).toString());
+            }
+        }
+
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentran reservados: " + listaGeneral.getGeneralLinkedList().size() + " espacios en General");
+        System.out.println("************************************");
+    }
+
+    public static void listarColasReservas(Preferencial prefe) throws IOException {
+
+        if (colaPreferencial.getQueue().size() == 0) {
+            System.out.println("No hay cola de reservas");
+        } else {
+            for (int i = 0; i < colaPreferencial.getQueue().size(); i++) {
+                System.out.println(colaPreferencial.getQueue());
+            }
+        }
+
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentrar reservados: " + colaPreferencial.getQueue().size() + " espacios en la cola de reserva de Preferencial");
+        System.out.println("************************************");
+    }
+
+    public static void listarColasReservas(Graderia grade) throws IOException {
+        if (colaGraderia.getGraderiaQueue().size() == 0) {
+            System.out.println("No hay cola de reservas");
+        } else {
+            for (int i = 0; i < colaGraderia.getGraderiaQueue().size(); i++) {
+                System.out.println(colaGraderia.getGraderiaQueue());
+            }
+        }
+
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentran reservados: " + colaGraderia.getGraderiaQueue().size() + " espacios reservados en la cola de Graderia");
+        System.out.println("************************************");
+    }
+
+    public static void listarColasReservas(General gener) throws IOException {
+
+        if (colaGeneral.getGeneralQueue().size() == 0) {
+            System.out.println("No hay cola de reservas");
+        } else {
+            for (int i = 0; i < colaGeneral.getGeneralQueue().size(); i++) {
+                System.out.println(colaGeneral.getGeneralQueue().toString());
+            }
+        }
+
+        System.out.println("************************************");
+        System.out.println("Actualmente se encuentrar reservados: " + colaGeneral.getGeneralQueue().size() + " espacios en la cola de General");
+        System.out.println("************************************");
+    }
+
     public static boolean moostrarReservas(int opcion) throws IOException {
 
         boolean salir = false;
@@ -255,7 +294,6 @@ public class Interfaz {
                 //Mostrar Reserva Preferencial
 
                 listarReservas(Preferencial);
-                Preferencial.mostrarReservas();
                 salir = true;
                 break;
 
@@ -263,7 +301,6 @@ public class Interfaz {
                 //Mostrar Reserva Graderia
 
                 listarReservas(Graderia);
-                Graderia.mostrarReservas();
                 salir = true;
                 break;
 
@@ -271,7 +308,6 @@ public class Interfaz {
                 //Mostrar Reserva general
 
                 listarReservas(General);
-                General.mostrarReservas();
                 salir = true;
                 break;
 
@@ -293,7 +329,6 @@ public class Interfaz {
                 //Mostrar Reserva Preferencial
 
                 listarColasReservas(Preferencial);
-                Preferencial.mostrarColaDeReservas();
                 salir = true;
                 break;
 
@@ -302,7 +337,6 @@ public class Interfaz {
                 //Mostrar Reserva Graderia
 
                 listarColasReservas(Graderia);
-                Graderia.mostrarColaDeReservas();
                 salir = true;
                 break;
 
@@ -310,7 +344,6 @@ public class Interfaz {
                 //Mostrar Reserva general
 
                 listarColasReservas(General);
-                General.mostrarColaDeReservas();
                 salir = true;
                 break;
 
@@ -325,9 +358,57 @@ public class Interfaz {
        FIN DE METODOS PARA MOSTRAR RESULTADOS
    **************************************** */
 
+
         /* *****************************************
        INICIO DE METODOS PARA MOSTRAR GANANCIAS
    **************************************** */
+
+    public static void gananciasPorZona(Preferencial p) {
+
+        int totalPreferencial = listaUsuariosPreferencial.getMyList().size();
+        totalPreferencial = 7000 * totalPreferencial;
+        System.out.println("************************************");
+        System.out.println("La cantidad de Ganacias generadas por Preferencial es de: "+totalPreferencial+" colones");
+        System.out.println("************************************");
+    }
+
+    public static void gananciasPorZona(Graderia gr) {
+
+        int totalGraderia = listaGraderia.getStack().size();
+        totalGraderia = 5500 * totalGraderia;
+        System.out.println("************************************");
+        System.out.println("La cantidad de Ganacias generadas por Graderia es de: "+totalGraderia+" colones");
+        System.out.println("************************************");
+    }
+
+    public static void gananciasPorZona(General ge) {
+
+        int totalGeneral = listaGeneral.getGeneralLinkedList().size();
+        totalGeneral = 4000 * totalGeneral;
+        System.out.println("************************************");
+        System.out.println("La cantidad de Ganacias generadas por General es de: "+totalGeneral+" colones");
+        System.out.println("************************************");
+    }
+
+    public static void gananciasTotales() {
+
+        int totalPreferencial = listaUsuariosPreferencial.getMyList().size();
+        int totalGraderia = listaGraderia.getStack().size();
+        int totalGeneral = listaGeneral.getGeneralLinkedList().size();
+
+        // vamos a multiplicar cada valor por lo que vale su tiquete
+        totalPreferencial = 7000 * totalPreferencial;
+        totalGraderia = 5500 * totalGraderia;
+        totalGeneral = 4000 * totalGeneral;
+
+        // sumamos todos los valores
+        int totalGanancias = totalPreferencial + totalGraderia + totalGeneral;
+
+        // mostrarmos el output
+        System.out.println("************************************");
+        System.out.println("Hay un total de: "+ totalGanancias+ " de ganancias generadas");
+        System.out.println("************************************");
+    }
 
     public static boolean moostrarGanacias(int opcion) {
 
@@ -335,35 +416,23 @@ public class Interfaz {
         switch (opcion){
 
             case 1:
-                //Mostrar Reserva Preferencial
-                // Preferencial reservasDePreferencial = new Preferencial();
-                int totalPreferencial = Preferencial.mostrarReservas();
-                totalPreferencial = 7000 * totalPreferencial;
-                System.out.println("************************************");
-                System.out.println("La cantidad de Ganacias generadas por Preferencial es de: "+totalPreferencial+" colones");
-                System.out.println("************************************");
+                //Mostrar Ganancias Preferencial
+
+                gananciasPorZona(Preferencial);
                 salir = true;
                 break;
 
             case 2:
-                //Mostrar Reserva Graderia
+                //Mostrar Ganancias Graderia
 
-                int totalGraderia = Graderia.mostrarReservas();
-                totalGraderia = 5500 * totalGraderia;
-                System.out.println("************************************");
-                System.out.println("La cantidad de Ganacias generadas por Graderia es de: "+totalGraderia+" colones");
-                System.out.println("************************************");
+                gananciasPorZona(Graderia);
                 salir = true;
                 break;
 
             case 3:
-                //Mostrar Reserva General
+                //Mostrar Ganancias General
 
-                int totalGeneral = General.mostrarReservas();
-                totalGeneral = 4000 * totalGeneral;
-                System.out.println("************************************");
-                System.out.println("La cantidad de Ganacias generadas por General es de: "+totalGeneral+" colones");
-                System.out.println("************************************");
+                gananciasPorZona(General);
                 salir = true;
                 break;
 
@@ -371,9 +440,7 @@ public class Interfaz {
                 System.out.println("Opcion invalida");
 
         }
-
         return salir;
-
     }
 
         /* *****************************************
@@ -396,6 +463,7 @@ public class Interfaz {
                     // realizamos la reservacion donde se escogio
                     salir = reservar(opcion);
 
+                    // volvemos al menu
                     if (opcion == 4){
                         salir = true;
                     }
@@ -443,33 +511,18 @@ public class Interfaz {
             // mostramos las colas de reservas de esta ubicacion junto con la disponibilidad
 
 
-            case 4: //Mostrar ganancias totales
+            case 4:
 
-                //vamos a traer total de reservas de los campos
-                int totalPreferencial = Preferencial.mostrarReservas();
-                int totalGraderia = Graderia.mostrarReservas();
-                int totalGeneral = General.mostrarReservas();
-
-                // vamos a multiplicar cada valor por lo que vale su tiquete
-                totalPreferencial = 7000 * totalPreferencial;
-                totalGraderia = 5500 * totalGraderia;
-                totalGeneral = 4000 * totalGeneral;
-
-                // sumamos todos los valores
-                int totalGanacias = totalPreferencial + totalGraderia + totalGeneral;
-
-                // mostrarmos el output
-                System.out.println("************************************");
-                System.out.println("Hay un total de: "+totalGanacias+ " de ganancias generadas");
-                System.out.println("************************************");
+                //Mostrar ganancias totales
+                gananciasTotales();
                 break;
 
-            case 5: // Mostrar ganancias por ubicaciones
-                //mostrando cola reservas por ubicacion
+            case 5:
+
+                // Mostrar ganancias por ubicaciones
                 do {
                     ubicacionReserva();
                     opcion = seleccionarOpcion();
-                    // mostramos la cola de reserva de la ubicacion seleccionada
                     salir = moostrarGanacias(opcion);
                 } while (!salir);
 
@@ -481,16 +534,15 @@ public class Interfaz {
                 salir = false;
                 break;
 
-            case 6: // Mostrar el teatro
+            case 6:
+
+                // Mostrar el teatro
                 System.out.println("************************************");
 
                 Teatro2 teatro = new Teatro2();
                 teatro.setVisible(true);
 
                 System.out.println("************************************");
-
-
-
                 break;
 
             case 7:
