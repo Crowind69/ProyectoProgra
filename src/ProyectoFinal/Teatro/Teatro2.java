@@ -62,7 +62,8 @@ public class Teatro2 extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel areaPreferencial = new JLabel("Area Preferencial");
-		areaPreferencial.setBounds(350, 258, 83, 14);
+		areaPreferencial.setHorizontalAlignment(SwingConstants.CENTER);
+		areaPreferencial.setBounds(343, 258, 104, 14);
 		contentPane.add(areaPreferencial);
 		
 		JSeparator separator = new JSeparator();
@@ -134,7 +135,8 @@ public class Teatro2 extends JFrame {
 		panelPreferencial_10.setLayout(new SpringLayout());
 		
 		JLabel lblGraderiaPreferencial = new JLabel("Graderia Preferencial");
-		lblGraderiaPreferencial.setBounds(350, 365, 109, 14);
+		lblGraderiaPreferencial.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGraderiaPreferencial.setBounds(333, 365, 138, 14);
 		contentPane.add(lblGraderiaPreferencial);
 		
 		JSeparator separator_1_1 = new JSeparator();
@@ -296,7 +298,8 @@ public class Teatro2 extends JFrame {
 		panelGraderia_25.setLayout(new SpringLayout());
 		
 		JLabel lblPasillo = new JLabel("Pasillo");
-		lblPasillo.setBounds(380, 435, 40, 14);
+		lblPasillo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPasillo.setBounds(373, 435, 40, 14);
 		contentPane.add(lblPasillo);
 		
 		Panel panelGraderia_26 = new Panel();
@@ -450,6 +453,7 @@ public class Teatro2 extends JFrame {
 		panelGraderia_50.setLayout(new SpringLayout());
 		
 		JLabel graderiaGeneral = new JLabel("Graderia General");
+		graderiaGeneral.setHorizontalAlignment(SwingConstants.CENTER);
 		graderiaGeneral.setBounds(350, 617, 109, 14);
 		contentPane.add(graderiaGeneral);
 		
