@@ -182,7 +182,7 @@ public class Interfaz {
                 break;
 
             default:
-                System.out.println("Opcion invalida");
+                System.out.println("Opcion invalida, vuelva a intentarlo");
         }
         return salir;
     }
@@ -312,7 +312,7 @@ public class Interfaz {
                 break;
 
             default:
-                System.out.println("Opcion invalida");
+                System.out.println("Opcion invalida, vuelva a intentarlo");
 
         }
 
@@ -348,7 +348,7 @@ public class Interfaz {
                 break;
 
             default:
-                System.out.println("Opcion invalida");
+                System.out.println("Opcion invalida, vuelva a intentarlo");
 
         }
         return salir;
@@ -437,7 +437,7 @@ public class Interfaz {
                 break;
 
             default:
-                System.out.println("Opcion invalida");
+                System.out.println("Opcion invalida, vuelva a intentarlo");
 
         }
         return salir;
@@ -550,7 +550,7 @@ public class Interfaz {
                 break;
 
             default:
-                System.out.println("Opcion invalida");
+                System.out.println("Opcion invalida, vuelva a intentarlo");
         }
         return salir;
     }
