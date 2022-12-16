@@ -8,6 +8,7 @@ public class CArrayList {
     private static ArrayList<Preferencial> myList;
 
     public CArrayList() {
+
         setMyList(new ArrayList<Preferencial>());
     }
 

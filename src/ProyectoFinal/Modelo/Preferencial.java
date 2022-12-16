@@ -3,7 +3,8 @@ package ProyectoFinal.Modelo;
 public class Preferencial extends PersonasReservas{
 
     public Preferencial(String nombreCliente) {
-    	super(nombreCliente);
+
+        super(nombreCliente);
     }
 
     public String toString() {

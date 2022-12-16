@@ -24,28 +24,33 @@ public class CQueue {
         this.generalQueue = generalQueue;
     }
     public void setMyQueue(Queue<Preferencial> myQueue) {
+
         this.myQueue = myQueue;
     }
 
     public void setGraderiaQueue(Queue<Graderia> graderiaQueue) {
+
         this.graderiaQueue = graderiaQueue;
     }
 
     public void setGeneralQueue(Queue<General> generalQueue) {
+
         this.generalQueue = generalQueue;
     }
 
 
     public static Queue<Preferencial> getQueue() {
+
         return myQueue;
     }
 
     public static Queue<Graderia> getGraderiaQueue() {
+
         return graderiaQueue;
     }
 
     public static Queue<General> getGeneralQueue() {
+
         return generalQueue;
     }
-
 }

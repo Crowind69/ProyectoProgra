@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.IOException;
+import java.util.Queue;
 
 public class Interfaz {
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
@@ -109,7 +110,7 @@ public class Interfaz {
 
         String nombre;
         try {
-            if (listaGraderia.getStack().size() >= 3) {
+            if (listaGraderia.getStack().size() >= 50) {
                 System.out.println("Bienvenido.\nLo sentimos, actualmente se han reservado todos los asientos, su" +
                         "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
                         "para agregarlo a la cola: ");
@@ -138,7 +139,7 @@ public class Interfaz {
 
         String nombre;
         try {
-            if (listaGeneral.getGeneralLinkedList().size() >= 3) {
+            if (listaGeneral.getGeneralLinkedList().size() >= 20) {
                 System.out.println("Bienvenido. \n Lo sentimos, actualmente se han reservado todos los asientos, su" +
                         "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
                         "para agregarlo a la cola: ");

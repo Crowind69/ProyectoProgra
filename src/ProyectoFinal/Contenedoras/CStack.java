@@ -18,11 +18,12 @@ public class CStack {
     }
 
 	public void setMyStack(Stack<Graderia> myStack) {
-		this.myStack = myStack;
+
+        this.myStack = myStack;
 	}
 	
 	public Stack<Graderia> getStack() {
-		return myStack;
-	}
 
+        return myStack;
+	}
 }
