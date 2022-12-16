@@ -82,7 +82,7 @@ public class Interfaz {
         String nombre;
 
         try {
-            if (listaUsuariosPreferencial.getMyList().size() >= 3){
+            if (listaUsuariosPreferencial.getMyList().size() >= 10){
                 System.out.println("Bienvenido.\nLo sentimos, actualmente se han reservado todos los asientos, su" +
                         "solicitud sera ingresada a la cola de espera.\nPor favor indicar el nombre completo" +
                         "para agregarlo a la cola: ");
