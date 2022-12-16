@@ -13,7 +13,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.IOException;
-import java.util.Queue;
 
 public class Interfaz {
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
@@ -89,19 +88,23 @@ public class Interfaz {
                 nombre = in.readLine();
                 preferencial = new Preferencial(nombre);
                 colaPreferencial.getQueue().add(preferencial);
+
+                System.out.println("************************************");
+                System.out.println("Su solicitud fue ingresada a la cola de espera con exito");
+                System.out.println("************************************");
             } else {
                 System.out.println("Bienvenido. \nIngrese su nombre completo: ");
                 nombre = in.readLine();
                 preferencial = new Preferencial(nombre);
                 listaUsuariosPreferencial.getMyList().add(preferencial);
+
+                System.out.println("************************************");
+                System.out.println("Su reserva a sido creada con exito");
+                System.out.println("************************************");
             }
         } catch (Exception  ex) {
             System.out.println("Lo sentimos, ha ocurrido un error, vuelva a intentarlo");
         }
-
-        System.out.println("************************************");
-        System.out.println("Su reserva a sido creada con exito");
-        System.out.println("************************************");
         return true;
     }
 
@@ -117,20 +120,26 @@ public class Interfaz {
                 nombre = in.readLine();
                 graderia = new Graderia(nombre);
                 colaGraderia.getGraderiaQueue().add(graderia);
+
+                System.out.println("************************************");
+                System.out.println("Su solicitud fue ingresada a la cola de espera con exito");
+                System.out.println("************************************");
             } else {
                 System.out.println("Bienvenido. \nIngrese su nombre completo: ");
                 nombre = in.readLine();
                 graderia = new Graderia(nombre);
                 listaGraderia.getStack().push(graderia);
+
+                System.out.println("************************************");
+                System.out.println("Su reserva a sido creada con exito");
+                System.out.println("************************************");
             }
 
         } catch (Exception ex) {
             System.out.println("Lo sentimos, ha ocurrido un error, vuelva a intentarlo");
         }
 
-        System.out.println("************************************");
-        System.out.println("Su reserva a sido creada con exito");
-        System.out.println("************************************");
+
         return true;
     }
 
@@ -146,19 +155,23 @@ public class Interfaz {
                 nombre = in.readLine();
                 general = new General(nombre);
                 colaGeneral.getGeneralQueue().add(general);
+
+                System.out.println("************************************");
+                System.out.println("Su solicitud fue ingresada a la cola de espera con exito");
+                System.out.println("************************************");
             } else {
                 System.out.println("Bienvenido. \nIngrese su nombre completo: ");
                 nombre = in.readLine();
                 general = new General(nombre);
                 listaGeneral.getGeneralLinkedList().add(general);
+
+                System.out.println("************************************");
+                System.out.println("Su reserva a sido creada con exito");
+                System.out.println("************************************");
             }
         } catch (Exception ex) {
             System.out.println("Lo sentimos, ha ocurrido un error, vuelva a intentarlo");
         }
-
-        System.out.println("************************************");
-        System.out.println("Su reserva a sido creada con exito");
-        System.out.println("************************************");
         return true;
     }
 
@@ -180,6 +193,10 @@ public class Interfaz {
             case 3:
                 //Reservar general
                 salir = reservaciones(General);
+                break;
+
+            case 4:
+                salir = true;
                 break;
 
             default:
@@ -312,6 +329,10 @@ public class Interfaz {
                 salir = true;
                 break;
 
+            case 4:
+                salir = true;
+                break;
+
             default:
                 System.out.println("Opcion invalida, vuelva a intentarlo");
 
@@ -345,6 +366,10 @@ public class Interfaz {
                 //Mostrar Reserva general
 
                 listarColasReservas(General);
+                salir = true;
+                break;
+
+            case 4:
                 salir = true;
                 break;
 
@@ -434,6 +459,10 @@ public class Interfaz {
                 //Mostrar Ganancias General
 
                 gananciasPorZona(General);
+                salir = true;
+                break;
+
+            case 4:
                 salir = true;
                 break;
 

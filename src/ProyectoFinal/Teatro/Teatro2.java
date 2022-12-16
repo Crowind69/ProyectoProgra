@@ -5,28 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Graphics;
 
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import java.awt.Color;
-import java.awt.Component;
-import javax.swing.Box;
-import java.awt.Dimension;
-import javax.swing.JSpinner;
-import javax.swing.JProgressBar;
 import java.awt.Panel;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-
-import java.awt.GridLayout;
-import java.awt.Image;
-
 import javax.swing.SpringLayout;
 
 public class Teatro2 extends JFrame {
@@ -582,18 +567,4 @@ public class Teatro2 extends JFrame {
 		lblNewLabel.setBounds(10, 11, 761, 236);
 		contentPane.add(lblNewLabel);
 	}
-	
-	/*class FondoPanel extends JPanel {
-		private Image imagen;
-		
-		public void paint(Graphics g) {
-			imagen = new ImageIcon(getClass().getResource("/Imagenes/teatro.jpg")).getImage();
-			
-			g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-
-            setOpaque(false);
-
-            super.paint(g);
-		}
-	}*/
 }
