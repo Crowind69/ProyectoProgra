@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.IOException;
+import java.util.Iterator;
 
 public class Interfaz {
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
@@ -268,6 +269,7 @@ public class Interfaz {
                 System.out.println(colaPreferencial.getQueue());
             }
         }
+
 
         System.out.println("************************************");
         System.out.println("Actualmente se encuentrar reservados: " + colaPreferencial.getQueue().size() + " espacios en la cola de reserva de Preferencial");
